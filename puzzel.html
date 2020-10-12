@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br>
+<div onclick="changeImage(1)">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg" width="500px" alt="anh bi loi"/>
+</div>
+<div onclick="changeImage(2)">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg" width="500px" alt="anh bi loi"/>
+</div>
+<div onclick="changeImage(3)">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg" width="500px" alt="anh bi loi"/>
+</div>
+<div onclick="changeImage(4)">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg" width="500px" alt="anh bi loi"/>
+</div>
+<div onclick="changeImage(5)">
+    <img src="https://demo.codegym.vn/8/puzzlegame/img/monkey_part5x1.jpg" width="500px" alt="anh bi loi"/>
+</div>
+
+
+<script>
+
+    function changeImage(type) {
+        let srcImg1 = document.getElementsByTagName("img")[0].src;
+        let srcImg2 = document.getElementsByTagName("img")[1].src;
+        let srcImg3 = document.getElementsByTagName("img")[2].src;
+        let srcImg4 = document.getElementsByTagName("img")[3].src;
+        let srcImg5 = document.getElementsByTagName("img")[4].src;
+
+        let panda1 = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part1x1.jpg";
+        let cat1 = "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part1x1.jpg";
+        let monkey1 = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part1x1.jpg";
+        let panda2 = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part2x1.jpg";
+        let cat2 = "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part2x1.jpg";
+        let monkey2 = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part2x1.jpg";
+        let panda3 = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part3x1.jpg";
+        let cat3 = "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part3x1.jpg";
+        let monkey3 = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part3x1.jpg";
+        let panda4 = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part4x1.jpg";
+        let cat4 = "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part4x1.jpg";
+        let monkey4 = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part4x1.jpg";
+        let panda5 = "https://demo.codegym.vn/8/puzzlegame/img/panda_swap_part5x1.jpg";
+        let cat5 = "https://demo.codegym.vn/8/puzzlegame/img/funny-cat1_part5x1.jpg";
+        let monkey5 = "https://demo.codegym.vn/8/puzzlegame/img/monkey_part5x1.jpg";
+
+        if (type == "1") {
+            if (srcImg1 == panda1) {
+                document.getElementsByTagName("img")[0].src = cat1;
+            } else if (srcImg1 == cat1) {
+                document.getElementsByTagName("img")[0].src = monkey1;
+            } else {
+                document.getElementsByTagName("img")[0].src = panda1;
+            }
+        } else if (type == "2") {
+            if (srcImg2 == panda2) {
+                document.getElementsByTagName("img")[1].src = cat2;
+            } else if (srcImg2 == cat2) {
+                document.getElementsByTagName("img")[1].src = monkey2;
+            } else {
+                document.getElementsByTagName("img")[1].src = panda2;
+            }
+        } else if (type == "3") {
+            if (srcImg3 == panda3) {
+                document.getElementsByTagName("img")[2].src = cat3;
+            } else if (srcImg3 == cat3) {
+                document.getElementsByTagName("img")[2].src = monkey3;
+            } else {
+                document.getElementsByTagName("img")[2].src = panda3;
+            }
+        } else if (type == "4") {
+            if (srcImg4 == panda4) {
+                document.getElementsByTagName("img")[3].src = cat4;
+            } else if (srcImg4 == cat4) {
+                document.getElementsByTagName("img")[3].src = monkey4;
+            } else {
+                document.getElementsByTagName("img")[3].src = panda4;
+            }
+        } else {
+            if (srcImg5 == panda5) {
+                document.getElementsByTagName("img")[4].src = cat5;
+            } else if (srcImg5 == cat5) {
+                document.getElementsByTagName("img")[4].src = monkey5;
+            } else {
+                document.getElementsByTagName("img")[4].src = panda5;
+            }
+        }
+
+        checkWin();
+
+    }
+
+    function checkWin() {
+        let srcImg1 = document.getElementsByTagName("img")[0].src;
+        let srcImg2 = document.getElementsByTagName("img")[1].src;
+        let srcImg3 = document.getElementsByTagName("img")[2].src;
+        let srcImg4 = document.getElementsByTagName("img")[3].src;
+        let srcImg5 = document.getElementsByTagName("img")[4].src;
+
+        let nameImg1 = srcImg1.slice(41, 46);
+        let nameImg2 = srcImg2.slice(41, 46);
+        let nameImg3 = srcImg3.slice(41, 46);
+        let nameImg4 = srcImg4.slice(41, 46);
+        let nameImg5 = srcImg5.slice(41, 46);
+        console.log(srcImg1);
+        console.log(srcImg2);
+        console.log(srcImg3);
+        console.log(srcImg4);
+        console.log(srcImg5);
+
+        if ((nameImg1 == nameImg5) && (nameImg1 == nameImg2) && (nameImg2 == nameImg3) && (nameImg3 == nameImg4) && (nameImg4 = nameImg5)) {
+            if (nameImg1 == "panda") {
+                alert("You are so smart. This is a Panda.");
+            } else if (nameImg1 == "monke") {
+                alert("You are so smart. This is a Monkey.");
+            } else if (nameImg1 == "funny") {
+                alert("You are so smart. This is a Cat.");
+            }
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>
